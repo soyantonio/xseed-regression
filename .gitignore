@@ -1,2 +1,5 @@
 .env
 /img
+__pycache__
+.vscode
+data

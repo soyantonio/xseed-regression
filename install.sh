@@ -15,5 +15,14 @@ else
     printf "✔️ img folder already exists\n"
 fi
 
+if [ ! -d "data" ]; then
+    printf "🔨 Creating data folder\n"
+    mkdir img
+else
+    printf "✔️ data folder already exists\n"
+fi
+
+
+
 
 printf "Done 😎\n"
