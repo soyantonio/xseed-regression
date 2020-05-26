@@ -17,7 +17,7 @@ fi
 
 if [ ! -d "data" ]; then
     printf "🔨 Creating data folder\n"
-    mkdir img
+    mkdir data
 else
     printf "✔️ data folder already exists\n"
 fi
