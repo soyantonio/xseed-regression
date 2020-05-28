@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 import random
-import package.error as error
+import package.accy as accy
+import package.cost as cost
 import package.data as data
 import package.gradient as gradient
 
@@ -20,11 +21,11 @@ train_set, train_y = trainLoad()
 test_set, test_y = testLoad()
 
 # Output sets
-train_accuracies = np.zeros([epochs_max])
+# train_accuracies = np.zeros([epochs_max])
 train_errors = np.zeros([epochs_max])
 train_predictions = np.zeros([train_y.size])
 
-test_accuracies = np.zeros([epochs_max])
+# test_accuracies = np.zeros([epochs_max])
 test_errors = np.zeros([epochs_max])
 test_predictions = np.zeros([test_y.size])
 
@@ -44,12 +45,12 @@ while(True):
     thetas = gradient.descent(train_set, thetas, train_y, learning_rate=alpha)
     # Train
     train_predictions = np.dot(train_set, thetas)
-    train_errors[epoch] = error.mse(train_y, train_predictions)
-    train_accuracies[epoch] = error.get_r2(train_y, train_predictions)
+    train_errors[epoch] = cost.rmse(train_y, train_predictions)
+    # train_accuracies[epoch] = accy.r2(train_y, train_predictions)
     # Test
     test_predictions = np.dot(test_set, thetas)
-    test_errors[epoch] = error.mse(test_y, test_predictions)
-    test_accuracies[epoch] = error.get_r2(test_y, test_predictions)
+    test_errors[epoch] = cost.rmse(test_y, test_predictions)
+    # test_accuracies[epoch] = accy.r2(test_y, test_predictions)
     
     last_train_error = train_errors[epoch]
     last_test_error = test_errors[epoch]
@@ -73,17 +74,17 @@ for i, x in enumerate(trained_y):
     print('\thyp', trained_y[i], 'y', trained_p[i])
 
 # Results
-train_r2 = error.get_r2(train_y, train_predictions)
-test_r2 = error.get_r2(test_y, test_predictions)
+# train_r2 = accy.r2(train_y, train_predictions)
+# test_r2 = accy.r2(test_y, test_predictions)
 
 np.set_printoptions(precision=16)
 print(message, "Epoch", str(epoch), "\n")
 print("Train size", train_predictions.size)
 print("Test size", test_predictions.size)
-print("Train MSE", last_train_error)
-print("Test MSE", last_test_error)
-print("Train R^2", train_r2)
-print("Test R^2", test_r2)
+print("Train RMSE", last_train_error)
+print("Test RMSE", last_test_error)
+# print("Train R^2", train_r2)
+# print("Test R^2", test_r2)
 print("\nParams", thetas, "\n")
 
 # Random tracks ids
@@ -122,14 +123,14 @@ if(nargs < 5):
     plt.plot(test_errors)
     plt.xscale('log')
     plt.legend(['Train', 'Test'])
-    plt.title('MSE')
+    plt.title('Cost RMSE')
 
-    plt.figure(6)
-    plt.plot(train_accuracies)
-    plt.plot(test_accuracies)
-    plt.xscale('log')
-    plt.legend(['Train', 'Test'])
-    plt.title('R^2')
+    # plt.figure(6)
+    # plt.plot(train_accuracies)
+    # plt.plot(test_accuracies)
+    # plt.xscale('log')
+    # plt.legend(['Train', 'Test'])
+    # plt.title('R^2')
 
 
     plt.show()
