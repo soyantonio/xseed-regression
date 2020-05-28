@@ -221,6 +221,7 @@ The previous model was tested with multiple epoch values, but the result with hi
 * https://heartbeat.fritz.ai/5-regression-loss-functions-all-machine-learners-should-know-4fb140e9d4b0
 * https://towardsdatascience.com/difference-between-batch-gradient-descent-and-stochastic-gradient-descent-1187f1291aa1
 * https://towardsdatascience.com/batch-mini-batch-stochastic-gradient-descent-7a62ecba642a
+* https://www.dataquest.io/blog/understanding-regression-error-metrics/
 
 
 Thierry Bertin-Mahieux, Daniel P.W. Ellis, Brian Whitman, and Paul Lamere. 
