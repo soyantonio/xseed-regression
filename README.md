@@ -134,22 +134,22 @@ It will help us to measure the behavior of the model, in other words, what is th
 
 The chosen cost function to measure our model is RMSE. It is because a linear relation of units will facilitate the analysis, outliers could affect it. **Important** this function is only for analysis purposes and not for improving the model.
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;RMSE=\sqrt{\frac{\sum_{i=1}^{n}(y_i - h_i)^2}{n}}" title="\Large RMSE=\sqrt{\frac{\sum_{i=1}^{n}(y_i - h_i)^2}{n}}" />
+![\Large RMSE=\sqrt{\frac{\sum_{i=1}^{n}(y_i - h_i)^2}{n}}](doc/rmse.svg)
 
 -------------
 
 The cost function to train the model
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;J(\theta)=\frac{1}{2n}\sum_{i=1}^{n}(y_i - h_i)^2" title="\Large J(\theta)=\frac{1}{2n}\sum_{i=1}^{n}(y_i - h_i)^2" />
+![\Large J(\theta)=\frac{1}{2n}\sum_{i=1}^{n}(y_i - h_i)^2](doc/linear_cost.svg)
 
 
 The purpose is minimize the error between the prediction, so the model needs to move down towards the function. For that, it can be derivated, this value means how much our descent should move, it will be also affected by the learning rate.
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\frac{\delta}{\delta\theta}J(\theta)=\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_i" title="\Large \frac{\delta}{\delta\theta}J(\theta)=\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_i" />
+![\Large \frac{\delta}{\delta\theta}J(\theta)=\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_i](doc/cost_derivated.svg)
 
 It will be removed to the previous param value
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\theta_j=\theta_j - \alpha\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_{ji}" title="\Large \frac{\delta}{\delta\theta}J(\theta)=\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_i" />
+![\Large \theta_j=\theta_j - \alpha\frac{1}{n}\sum_{i=1}^{n}(y_i - h_i)x_{ji}](doc/gradient_descent.svg)
 
 
 [⬆️ Return](#table-of-contents)
